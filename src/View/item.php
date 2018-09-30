@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head> ... </head>
+<head> YEAAAHHHH </head>
 <body>
 <section>
     <h1>Items</h1>
