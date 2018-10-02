@@ -1,0 +1,16 @@
+{
+    "name": "felix/quete_simple_mvc",
+    "authors": [
+        {
+            "name": "Felix Tuffreaud",
+            "email": "felix.tuffreaud@laposte.net"
+        }
+    ],
+    "require": {},
+
+    "autoload": {
+        "psr-4": {
+            "": "src/"
+        }
+    }
+}
