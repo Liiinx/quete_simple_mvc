@@ -1,33 +1,16 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: felix
+ * Date: 07/10/18
+ * Time: 19:40
+ */
 
 namespace Model;
-// src/Model/ItemManager.php
 require __DIR__ . '/../../app/db.php';
 
+class CategoryManager {
 
-class ItemManager {
-
-    // récupération de tous les items
-    public function selectAllItems() :array
-    {
-        $pdo = new \PDO(DSN, USER, PASS);
-        $query = "SELECT * FROM item";
-        $res = $pdo->query($query);
-        return $res->fetchAll();
-    }
-
-    // la méthode prend l'id en paramètre
-    public function selectOneItem(int $id) : array
-    {
-        $pdo = new \PDO(DSN, USER, PASS);
-        $query = "SELECT * FROM item WHERE id = :id";
-        $statement = $pdo->prepare($query);
-        $statement->bindValue(':id', $id, \PDO::PARAM_INT);
-        $statement->execute();
-        // contrairement à fetchAll(), fetch() ne renvoie qu'un seul résultat
-        return $statement->fetch();
-    }
-    /*
     // récupération de toutes les catégories
     public function selectAllCategories() : array
     {
@@ -46,7 +29,6 @@ class ItemManager {
         $statement->execute();
         // contrairement à fetchAll(), fetch() ne renvoie qu'un seul résultat
         return $statement->fetch();
-    }  */
+    }
 
 }
-?>

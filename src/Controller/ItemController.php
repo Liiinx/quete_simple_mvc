@@ -19,7 +19,7 @@ class ItemController{
         $item =  $itemManager->selectOneItem($id);
         require __DIR__ . '/../View/showItem.php';
     }
-
+    /*
     // controller pour toutes les categories
     public function categories() {
         $itemManager = new ItemManager();
@@ -31,6 +31,6 @@ class ItemController{
         $itemManager = new ItemManager();
         $category = $itemManager->selectOneCategory($id);
         require __DIR__ . '/../View/showCategory.php';
-    }
+    } */
 }
 ?>
