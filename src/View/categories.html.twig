@@ -1,0 +1,17 @@
+{% extends "layout.html.twig" %}
+
+{% block tiltle %}
+Categories
+{% endblock %}
+
+{% block content %}
+<body>
+<section>
+    <h1>Toutes les categories</h1>
+    <ul>
+    {% for category in categories %}
+        <li>{{ category.name }}</li>
+    {% endfor %}
+    </ul>
+</section>
+{% endblock %}
