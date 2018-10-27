@@ -5,13 +5,23 @@ Categories
 {% endblock %}
 
 {% block content %}
-<body>
-<section>
-    <h1>Toutes les categories</h1>
-    <ul>
-    {% for category in categories %}
-        <li>{{ category.name }}</li>
-    {% endfor %}
-    </ul>
-</section>
+<div class="container">
+    <section class="p-5">
+        <h1>all categories</h1>
+        <ul>
+        {% for category in categories %}
+            <div class="row p-1">
+                <div class="col-3">
+                    <li>{{ category.name }}</li>
+                </div>
+                <div class="col-4">
+                    <a href="/category/{{ category.id }}">
+                        <button type="button" class="btn btn-outline-info">Show</button>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </ul>
+    </section>
+</div>
 {% endblock %}

@@ -11,6 +11,9 @@ $routes = [
     ],
     'Category' => [ // Controller
         ['categories', '/categories', 'GET'], // action, url, HTTP method
+        ['add', '/category/add', ['GET', 'POST']],
+        ['edit', '/category/edit/{id:\d+}', ['GET', 'POST']],
+        ['delete', '/category/delete/{id:\d+}', 'GET'],
         ['category', '/category/{id:\d+}', 'GET'], // action, url, HTTP method
     ],
 ];

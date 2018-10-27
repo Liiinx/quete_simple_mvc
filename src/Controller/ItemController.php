@@ -56,7 +56,6 @@ class ItemController extends AbstractController {
         //var_dump($id);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            var_dump($_POST);
             $item->setTitle($_POST['item']);
             $itemManager->update($item);
             header('Location:/');
