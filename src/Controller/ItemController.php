@@ -26,10 +26,11 @@ class ItemController extends AbstractController {
 
         if (!empty($_POST)) {
             // TODO : validations des valeurs saisies dans le form
+            $addItem = htmlspecialchars(trim(strip_tags($_POST['item'])));
             // création d'un nouvel objet Item et hydratation avec les données du formulaire
             $itemManager = new ItemManager($this->pdo);
             $item = new Item();
-            $item->setTitle($_POST['item']);
+            $item->setTitle($addItem);
             // l'objet $item hydraté est simplement envoyé en paramètre de insert()
             $itemManager->insert($item);
             // si tout se passe bien, redirection
@@ -39,5 +40,13 @@ class ItemController extends AbstractController {
         // le formulaire HTML est affiché (vue à créer)
         return $this->twig->render('add.html.twig');
     }
+
+    public function delete(int $id) {
+
+        $itemManager = new ItemManager($this->pdo);
+        $itemManager->delete($id);
+        header('Location:/');
+    }
 }
+
 ?>

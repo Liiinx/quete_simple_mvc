@@ -5,13 +5,24 @@ items
 {% endblock %}
 
 {% block content %}
-<section>
-    <h1>Tous les items</h1>
-    <ul>
-        {% for item in items %}
-        <li>{{ item.title }}</li>
-        {% endfor %}
-    </ul>
-</section>
+<div class="container">
+    <section class="p-5">
+        <h1>Tous les items</h1>
+        <ul>
+            {% for item in items %}
+            <div class="row p-1">
+                <div class="col-3">
+                    <li>{{ item.title }}</li>
+                </div>
+                <div class="col-4">
+                    <a href="/item/{{ item.id }}">
+                        <button type="button" class="btn btn-outline-info">Show</button>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </ul>
+    </section>
+</div>
 
 {% endblock %}

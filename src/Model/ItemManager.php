@@ -21,5 +21,15 @@ class ItemManager extends AbstractManager
         }
     }
 
+    public function delete(int $id)
+    {
+        $statement = $this->pdo->prepare("DELETE FROM $this->table WHERE id = :id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
+
+        //$_SERVER['HTTP_REFERER'] = Sert à retourner sur la page précédente
+        //return header('Location: ' .  $_SERVER['HTTP_REFERER']);
+    }
+
 }
 ?>
