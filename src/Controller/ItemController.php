@@ -41,11 +41,27 @@ class ItemController extends AbstractController {
         return $this->twig->render('add.html.twig');
     }
 
-    public function delete(int $id) {
+    public function delete(int $id)
+    {
 
         $itemManager = new ItemManager($this->pdo);
         $itemManager->delete($id);
         header('Location:/');
+    }
+
+    public function edit(int $id)
+    {
+        $itemManager = new ItemManager($this->pdo);
+        $item = $itemManager->selectOneById($id);
+        //var_dump($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            var_dump($_POST);
+            $item->setTitle($_POST['item']);
+            $itemManager->update($item);
+            header('Location:/');
+        }
+        return $this->twig->render('edit.html.twig', ['item'=> $item]);
     }
 }
 

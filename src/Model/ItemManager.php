@@ -31,5 +31,13 @@ class ItemManager extends AbstractManager
         //return header('Location: ' .  $_SERVER['HTTP_REFERER']);
     }
 
+    public function update($item) :int
+    {
+        $statement = $this->pdo->prepare("UPDATE $this->table set title = :title WHERE id = :id");
+        $statement->bindValue('title', $item->getTitle(), \PDO::PARAM_STR);
+        $statement->bindValue('id', $item->getId(), \PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
 }
 ?>

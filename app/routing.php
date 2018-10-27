@@ -5,6 +5,7 @@ $routes = [
         ['index', '/', 'GET'], // action, url, HTTP method
         ['add', '/item/add', ['GET', 'POST']],
         ['delete', '/item/delete/{id:\d+}', 'GET'],
+        ['edit', '/item/edit/{id:\d+}', ['GET', 'POST']],
         ['show', '/item/{id:\d+}', 'GET'], // action, url, HTTP method
 
     ],
